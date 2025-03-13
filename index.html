@@ -101,12 +101,13 @@
 
                                         <div class="form-check">
 
-                                            <input type="checkbox"
-                                             class="form-check-input" value="alface" v-movel=""> 
+                                            <input type="checkbox" class="form-check-input" value="alface"
+                                                v-model="inputSalada">
+
 
                                             <label for=""> alface </label>
                                         </div>
-                                        
+
                                     </div>
 
                                 </div>
@@ -114,9 +115,39 @@
                             </div>
 
                         </div>
+                       
+                        <div class="col">
+                            <div class="card">
 
+                                <div class="card-header">
+                                    Molhos
+                                </div>
 
-                    </div>
+                                <div class="card-body">
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input type="checkbox" class="form-check-input" value="ketchup" v-model="inputMolhos">
+                                        <label class="form-check-label"> Ketchup </label>
+
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input type="checkbox" class="form-check-input" value="mostarda" v-model="inputMolhos">
+                                        <label class="form-check-label"> Mostarda </label>
+
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input type="checkbox" class="form-check-input" value="maionese" v-model="inputMolhos">
+
+                                        <label class="form-check-label"> Maionese </label>
+
+                                    </div>
+
+                                </div><!-- fim card body -->
 
                 </div> <!-- Fim ROW -->
 
@@ -134,7 +165,9 @@
                 el: '#app',
 
                 data: {
-                    inputTipoPao: '',
+                    inputTipoPao: '', // radio = obrigatoria  
+                    inputSalada: [], //checkbox = opcional
+                    inputMolhos: [],
 
                     etapa: 1,
                 },
@@ -152,8 +185,46 @@
                         }
 
                     },
-                },
 
+                    alface() {
+                        if (this.inputSalada.includes('alface')) {
+                            return 'imagens/alface.png'
+                        }
+
+                        return 'imagens/padrao/alface.png'
+
+                    },
+
+                    ketchup() {
+                        if (this.inputMolhos.includes('ketchup')) {
+                            return 'imagens/ketchup.png'
+                        }
+
+                        return 'imagens/padrao/molho.png'
+
+                    },
+
+                    mostarda() {
+                        if (this.inputMolhos.includes('mostarda')) {
+                            return 'imagens/mostarda.png'
+                        }
+
+                        return 'imagens/padrao/molho.png'
+
+                    },
+
+                    maionese() {
+                        if (this.inputMolhos.includes('maionese')) {
+                            return 'imagens/maionese.png'
+                        }
+
+                        return 'imagens/padrao/molho.png'
+
+                    },
+                },
+                   
+
+                    
 
 
 
